@@ -1,0 +1,75 @@
+.DestinationButtons {
+    display: flex;
+    padding: 0 20px;
+}
+
+.forecastButton {
+    background-color: #4444ff;
+    padding: 10px 10px;
+    width: 20%;
+    border-radius: 20px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-color: transparent;
+}
+
+.title {
+    text-align: center;
+    color: #eeeeee;
+}
+
+.forecast-flexbox {
+    display: flex;
+    padding: 2%;
+    flex-wrap: wrap;
+}
+
+.forecast-innerbox {
+    background-color: #4444ff;
+    padding: 10px 10px;
+    border-radius: 25px;
+    margin: 50px auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.forecast-innerbox > h2 {
+    color: #eeeeee;
+}
+
+@media only screen and (min-width: 746px) {
+    .forecast-innerbox {
+        width: 17%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .title {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 745px) {
+    .DestinationButtons {
+        flex-wrap: wrap;
+    }
+    
+    .forecastButton {
+        width: 40%;
+        margin: 30px auto;
+    }
+    
+    .title {
+        font-size: 1.5em;
+    }
+    
+    .forecast-flexbox {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .title {
+        font-size: 1em;
+    }
+}

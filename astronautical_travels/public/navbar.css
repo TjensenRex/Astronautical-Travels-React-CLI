@@ -1,0 +1,10 @@
+* {
+	margin: 0;
+	paddng: 0;
+	box-sizing: border-box;
+}
+
+.bg-dark {
+	color: #EEEEEE !important;
+	background-color: #000000 !important;
+}

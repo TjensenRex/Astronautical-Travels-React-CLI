@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+    background-color: #000000;
+    font-family: "Century Gothic", "Arial", sans-serif;
+}
+.background-image {
+    background-image: url("images/Sculptor_Galaxy_up_Close.jpg");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    background-position: center;
+}
+h1 {
+    color: #eeeeee;
+}
+p {
+    color: #eeeeee;
+}
+

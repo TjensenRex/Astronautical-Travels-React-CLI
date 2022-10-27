@@ -1,0 +1,38 @@
+.text-box {
+    background-color: #600060;
+    padding: 10px 30px 10px 30px;
+    width: 75%;
+    border-radius: 25px;
+    margin: 50px auto 50px auto;
+}
+
+.figcaption {
+    font-style: italic;
+    color: #eeeeee;
+}
+figure {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+figure > img {
+    width: 80%;
+    margin: 15px auto 0px auto;
+}
+h1 {
+    margin: 0px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+}
+
+ul {
+    list-style: none;
+}
+
+@media only screen and (max-width: 790px) {
+    figure > img {
+        width: 80%;
+    }
+}
