@@ -24,7 +24,7 @@ function App() {
     
   );
 }
-
+root.render(<p>THIS WAS RENDERED</p>);
 export default App;
 
 
