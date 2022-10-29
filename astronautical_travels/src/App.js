@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import ReactDOM from "react-dom/client";
+import React from 'react';
+
+const root = ReactDOM.createRoot(document.getElementById('forecastResults'));
 
 function App() {
   return (
@@ -21,5 +25,5 @@ function App() {
     </div>
   );
 }
-
+root.render(<p>THIS WAS RENDERED</p>);
 export default App;
