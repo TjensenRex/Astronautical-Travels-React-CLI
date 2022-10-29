@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  border: 20px solid red;
+  height: 100%;
+  width: 100%;
 }
 
 .App-logo {
@@ -35,4 +38,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.renderHolder {
+  height:100%;
+}
+
+.destinationPopularMargin {
+  margin-top: 50px;
 }

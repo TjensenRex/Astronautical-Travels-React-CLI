@@ -3,13 +3,13 @@
     padding: 10px 30px 10px 30px;
     width: 50%;
     border-radius: 25px;
-    margin: 0 auto;
+    margin: 40px auto;
     /*-family: "Century Gothic", "Arial", sans-serif;*/
 }
 
 .intro {
     display: flex;
-    height: 100%;
+    height: 67%;
     justify-content: center;
     align-items: center;
 }
