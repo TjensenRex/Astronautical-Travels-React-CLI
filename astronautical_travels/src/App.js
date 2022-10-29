@@ -1,29 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import ReactDOM from "react-dom/client";
-import React from 'react';
-
-const root = ReactDOM.createRoot(document.getElementById('forecastResults'));
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Destinations from "./pages/Destinations";
+import Weather from "./pages/Weather";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter basename="/Astronautical-Travels-React-CLI/astronautical_travels/build">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="destinations" element={<Destinations />} />
+          <Route path="weather" element={<Weather />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
+    
   );
 }
 root.render(<p>THIS WAS RENDERED</p>);
 export default App;
+
+
