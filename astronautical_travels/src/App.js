@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Destinations from "./pages/Destinations";
-import Weather from "./pages/Weather";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="destinations" element={<Destinations />} />
-          <Route path="weather" element={<Weather />} />
+          <Route path="AboutUs" element={<AboutUs />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -24,7 +24,7 @@ function App() {
     
   );
 }
-root.render(<p>THIS WAS RENDERED</p>);
+//root.render(<p>THIS WAS RENDERED</p>);
 export default App;
 
 

@@ -11,7 +11,7 @@ const Layout = () => {
 		
 		<Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">Astronautical Travels</Navbar.Brand>
           <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
@@ -19,8 +19,8 @@ const Layout = () => {
             <LinkContainer to="/Destinations">
               <Nav.Link>Destinations</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/Weather">
-              <Nav.Link>Weather</Nav.Link>
+            <LinkContainer to="/AboutUs">
+              <Nav.Link>About Us</Nav.Link>
             </LinkContainer>
           </Nav>
         </Container>
