@@ -30,7 +30,7 @@ const AboutUs = () => {
             	</div>
             </div>
             <div>
-                <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing</p>
+                <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing. Repository at: https://github.com/TjensenRex/Astronautical-Travels-React-CLI</p>
             </div>
         </div>
         

@@ -53,7 +53,7 @@ const Destinations = () => {
             </div>
         </div>
         <div>
-             <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing and Matthew Kennedy</p>
+             <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing and Matthew Kennedy. Repository at: https://github.com/TjensenRex/Astronautical-Travels-React-CLI</p>
          </div>;
         </div>
       );

@@ -17,7 +17,7 @@ const Home = () => {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         
         <div>
-           <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing and Matthew Kennedy</p>
+           <p className="fakeFooter">Created by Timothy Jensen and Kyle Standing and Matthew Kennedy. Repository at: https://github.com/TjensenRex/Astronautical-Travels-React-CLI</p>
         </div>;
     </div>
   );
