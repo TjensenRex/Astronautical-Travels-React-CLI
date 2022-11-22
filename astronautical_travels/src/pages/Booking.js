@@ -37,6 +37,7 @@ const Booking = () => {
     
     //Create a token and create a user if the name is new
     const createTicket = async(e) => {
+        e.preventDefault();
         if(name === "") {
             //TODO: Pop up here "Please enter a name"
             alert('Please enter a valid name');
