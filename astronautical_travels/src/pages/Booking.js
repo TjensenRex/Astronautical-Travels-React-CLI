@@ -106,7 +106,7 @@ const Booking = () => {
         		    </div>
         		    <div className="BookingRow">
         		        <button className="BookingButton" value={1} onClick={e=>setID(0)}>
-        		        Europa!</button>
+        		        Europa</button>
         		    </div>
         		    <div className="BookingRow">
         		        <button className="BookingButton" onClick={e=>setID(1)}>
