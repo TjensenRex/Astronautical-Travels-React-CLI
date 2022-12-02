@@ -33,7 +33,6 @@ const Ticket = new mongoose.model('Ticket',{
 const TicketHolder = new mongoose.model('TicketHolder',{
     auth_token: [Number],
     name: String,
-    species: String
 });
 
 const europa = new Destination({
@@ -81,6 +80,7 @@ const trappist_1e = new Destination({
     flight_duration: 180
 });
 
+//Loads the destinations if they aren't already in the database
 async function work() {
     if (!(await Destination.find({name: 'Europa'}))) {
         await europa.save();
@@ -130,6 +130,7 @@ app.delete('/at/destinations', async (req, res) => {
 app.get('/at/ticketholder', async (req, res) =>{
     try{
         let ticketHolders = await TicketHolder.find();
+        console.log("Made it into get");
         //console.log(destinations);
         res.send({ticketHolders: ticketHolders});
     } catch(error) {
@@ -138,9 +139,9 @@ app.get('/at/ticketholder', async (req, res) =>{
     }
 });
 //gets a specific ticketholder
-app.get('/at/ticketholder/:name/:species', async (req, res) => {
+app.get('/at/ticketholder/:name', async (req, res) => {
     try {
-        let user = await TicketHolder.find({name: req.params.name, species: req.params.species});
+        let user = await TicketHolder.find({name: req.params.name});
         console.log(user);
         if (!user) {
             res.status(404).send("Sorry, this user does not exist.");
@@ -154,16 +155,15 @@ app.get('/at/ticketholder/:name/:species', async (req, res) => {
     }
 });
 //Add a ticketHolder, or add an authtoken to an existing one if it is already present. authtoken must be in the req body, not the url
-app.post('/at/ticketholder/:name/:species', async (req, res) => {
+app.post('/at/ticketholder/:name', async (req, res) => {
     try {
-        let user = await TicketHolder.find({name: req.params.name, species: req.params.species});
+        let user = await TicketHolder.find({name: req.params.name});
         console.log(user);
         if (user.length === 0) {
-            console.log(req.body.auth_token)
+            console.log(authToken)
             let ticketHolder = new TicketHolder({
-                auth_token: [req.body.auth_token],
+                auth_token: [authToken],
                 name: req.params.name,
-                species: req.params.species
             });
             await ticketHolder.save();
             console.log(ticketHolder);
@@ -174,9 +174,9 @@ app.post('/at/ticketholder/:name/:species', async (req, res) => {
             if (!user[0].auth_token.find(x => x === req.body.auth_token)){
                 user[0].auth_token.push(req.body.auth_token);
                 await user[0].save();
-                console.log(await TicketHolder.find({name: req.params.name, species: req.params.species}));
+                console.log(await TicketHolder.find({name: req.params.name}));
             }
-            
+            console.log("Successfully created a user");
             res.sendStatus(200);
         }
     } catch(error) {
@@ -185,9 +185,9 @@ app.post('/at/ticketholder/:name/:species', async (req, res) => {
     }
 });
 //deletes an authToken from a ticketholder, if an authToken is given. Else it deletes the ticketholder. As above, authtoken must be in the body, not the url
-app.delete('/at/ticketholder/:name/:species', async (req, res) => {
+app.delete('/at/ticketholder/:name', async (req, res) => {
     try {
-        let user = await TicketHolder.find({name: req.params.name, species: req.params.species});
+        let user = await TicketHolder.find({name: req.params.name});
         console.log(user);
         if (user.length > 0) {
             if (req.body.authToken) {
@@ -196,7 +196,7 @@ app.delete('/at/ticketholder/:name/:species', async (req, res) => {
                 res.status(200).send(user);
             }
             else {
-                await TicketHolder.deleteOne({name: req.params.name, species: req.params.species});
+                await TicketHolder.deleteOne({name: req.params.name});
                 res.sendStatus(200);
             }
         }

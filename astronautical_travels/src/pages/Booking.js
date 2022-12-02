@@ -7,9 +7,7 @@ const Booking = () => {
     const [error, setError] = useState("");
     const [name, setName] = useState("");
     const [ticketHolders, setHolders] = useState([]);
-    //const [auth_token, setToken] = useState(10000);
     const [id, setID] = useState(-1);
-    var auth_token = 10000;
     
     const fetchTickets = async(e) => {
         e.preventDefault();
@@ -25,16 +23,26 @@ const Booking = () => {
         await tickets.find(x => x.auth_token === auth_token);
     }
     
-    const createHolder = async(e, name) => {
-        e.preventDefault();
+    const createHolder = async(e) => {
+        //e.preventDefault();
         try {
             //have them enter their name. If they are not already a user,
             //Add them to the list of holders. If they are, just add the token
             //to their list
           console.log("Do we make it");
-          await axios.post("/at/tickets", {name: name, species: 'Human'});
+          console.log(name);
+          console.log("/at/ticketholder/" + name);
+          await axios.post("/at/ticketholder/" + name);
         } catch(error) {
           setError("error adding a ticketHolder: " + error);
+        }
+    }
+    
+    const getHolders = async() => {
+        try {
+            setHolders(await axios.get("/at/ticketholder"));
+        } catch(error) {
+            setError("error getting the ticketHolders: " + error);
         }
     }
     
@@ -43,15 +51,14 @@ const Booking = () => {
     const createTicket = async(e) => {
         e.preventDefault();
         console.log(name);
-        if(e.name === "") {
-            //TODO: Pop up here "Please enter a name"
+        if(name === "") {
             alert('Please enter a valid name');
         }
         else {
             console.log("Else top");
             if(!ticketHolders.find(x => x === name)) {
                 console.log("Before CreateHolder");
-                await createHolder(name);
+                await createHolder();
                 console.log("After CreateHolder");
             }
             
@@ -59,10 +66,9 @@ const Booking = () => {
                 //TODO: Have them enter their name. If they are not already a user,
                 //Add them to the list of holders. If they are, just add the token
                 //To their list
-              auth_token = auth_token + 101;
-              alert('AuthToken: ' + auth_token);
+              //alert("In here");
               console.log("Before Axios Post");
-              //await axios.post("/at/tickets/", {id: e.id, auth_token: auth_token});
+              //await axios.post("/at/tickets/" + id,);
               console.log("After Axios Post");
               //TODO: put an auth_token on the screen here
             } catch(error) {
@@ -83,7 +89,7 @@ const Booking = () => {
     
     const deleteOneTicket = async(ticket, auth_token) => {
         try {
-            await axios.delete("/at/tickets/" + auth_token);
+            await axios.delete("/at/tickes/" + auth_token);
         } catch(error) {
             setError("error deleting a ticket" + error);
         }
