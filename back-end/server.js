@@ -7,6 +7,7 @@ app.use(bodyparser.urlencoded({
   extended: false
 }));
 
+var authToken = 10000;
 const mongoose = require('mongoose');
 
 // connect to the database
@@ -152,7 +153,7 @@ app.get('/at/ticketholder/:name/:species', async (req, res) => {
         res.sendStatus(500);
     }
 });
-//Add a ticketHolder, or add an authtoken to an existing one it it is already present. authtoken must be in the req body, not the url
+//Add a ticketHolder, or add an authtoken to an existing one if it is already present. authtoken must be in the req body, not the url
 app.post('/at/ticketholder/:name/:species', async (req, res) => {
     try {
         let user = await TicketHolder.find({name: req.params.name, species: req.params.species});
@@ -232,8 +233,9 @@ app.post('/at/tickets/:id', async (req, res) => {
     try{
         let ticket = new Ticket({
             id: req.params.id,
-            auth_token: req.body.auth_token
+            auth_token: authToken
         });
+        authToken += 101;
         await ticket.save();
         res.send(ticket);
     } catch(error) {
