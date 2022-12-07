@@ -7,8 +7,12 @@ import Home from "./pages/Home";
 import Destinations from "./pages/Destinations";
 import AboutUs from "./pages/AboutUs";
 import Weather from "./pages/Weather";
+import Booking from "./pages/Booking";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  
   return (
     <div className="App">
       
@@ -19,10 +23,11 @@ function App() {
             <Route path="destinations" element={<Destinations />} />
             <Route path="AboutUs" element={<AboutUs />} />
             <Route path="Weather" element={<Weather />} />
+            <Route path="Booking" element={<Booking />} />
           </Route>
         </Routes>
       </BrowserRouter>
-      </div>
+    </div>
     
   );
 }

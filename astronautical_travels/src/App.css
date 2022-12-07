@@ -58,9 +58,27 @@
     width: 20%;
     border-radius: 20px;
     margin: 50px auto;
+}
+.BookingContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #5555ff;
+  padding: 10px 10px;
+  border-radius: 20px;
+  width: 50%;
+  margin: 30px auto;
+  border: 5px solid #4444ff;
+}
+
+.BookingRow {
+    background-color: #4444ff;
+    width: 90%;
+    border-radius: 20px;
+    margin: 15px auto;
     overflow: hidden;
     border-color: transparent;
 }
+
 
 .title {
     text-align: center;
@@ -122,4 +140,26 @@
     .title {
         font-size: 1em;
     }
+}
+.BookingButton {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+}
+
+.ticket {
+    width: 100%;
+}
+
+.bookingText {
+    font-size: 1.2rem;
+}
+
+.deleteButton {
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.extraSpace {
+    height: 30px;
 }
