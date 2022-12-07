@@ -6,21 +6,23 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Destinations from "./pages/Destinations";
 import AboutUs from "./pages/AboutUs";
+import Weather from "./pages/Weather";
 
 function App() {
   return (
     <div className="App">
       
       <BrowserRouter basename="/Astronautical-Travels-React-CLI/astronautical_travels/build">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="destinations" element={<Destinations />} />
-          <Route path="AboutUs" element={<AboutUs />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    </div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="destinations" element={<Destinations />} />
+            <Route path="AboutUs" element={<AboutUs />} />
+            <Route path="Weather" element={<Weather />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      </div>
     
   );
 }
