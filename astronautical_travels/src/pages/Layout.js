@@ -22,6 +22,8 @@ const Layout = () => {
             <LinkContainer to="/AboutUs">
               <Nav.Link>About Us</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/Weather">
+              <Nav.Link>Weather</Nav.Link>
             <LinkContainer to="/Booking">
               <Nav.Link>Booking</Nav.Link>
             </LinkContainer>
