@@ -72,3 +72,20 @@
     height: 100%;
     padding: 10px 10px;
 }
+
+.ticket {
+    width: 100%;
+}
+
+.bookingText {
+    font-size: 1.2rem;
+}
+
+.deleteButton {
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.extraSpace {
+    height: 30px;
+}

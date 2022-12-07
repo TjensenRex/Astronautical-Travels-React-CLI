@@ -131,7 +131,7 @@ app.get('/at/ticketholder', async (req, res) =>{
         let ticketHolders = await TicketHolder.find();
         console.log("Made it into get");
         //console.log(destinations);
-        res.send({ticketHolders: ticketHolders});
+        res.send(ticketHolders);
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -179,6 +179,7 @@ app.post('/at/ticketholder/:name/:species', async (req, res) => {
 });
 //deletes a ticketholder.
 app.delete('/at/ticketholder/:name/:species', async (req, res) => {
+    console.log("deleting a single user");
     try {
         let user = await TicketHolder.find({name: req.params.name, species: req.params.species});
         console.log(user);
@@ -199,6 +200,7 @@ app.delete('/at/ticketholder', async (req, res) => {
     try {
        await TicketHolder.deleteMany();
         res.sendStatus(200);
+        console.log("Deleted ALL ticketholders")
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -208,7 +210,7 @@ app.delete('/at/ticketholder', async (req, res) => {
 app.get('/at/tickets', async (req, res) => {
     try{
         let tickets = await Ticket.find();
-        res.send({tickets: tickets});
+        res.send(tickets);
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -218,7 +220,7 @@ app.get('/at/tickets', async (req, res) => {
 app.get('/at/tickets/:id', async (req, res) => {
     try {
         let tickets = await Ticket.find({id: req.params.id});
-        res.send({tickets: tickets});
+        res.send(tickets);
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -228,7 +230,7 @@ app.get('/at/tickets/:id', async (req, res) => {
 app.get('/at/tickets/:id/:name', async (req, res) => {
     try {
         let tickets = await Ticket.findOne({id: req.params.id, name: req.params.name});
-        res.send({tickets: tickets});
+        res.send(tickets);
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
@@ -266,6 +268,7 @@ app.delete('/at/tickets', async (req, res) => {
     try {
         await Ticket.deleteMany();
         res.send("Tickets deleted.");
+        console.log("Deleted all tickets");
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
